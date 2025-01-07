@@ -12,9 +12,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/nothing/Pong/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/alpha/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_Pong
+PRODUCT_NAME := alpha_Pong
 PRODUCT_DEVICE := Pong
 PRODUCT_MANUFACTURER := nothing
 PRODUCT_BRAND := Nothing
@@ -31,3 +31,36 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     DeviceProduct=A065 \
     SystemDevice=Pong \
     SystemName=Pong
+
+# Device config
+TARGET_HAS_UDFPS := true
+TARGET_ENABLE_BLUR := true
+TARGET_EXCLUDES_AUDIOFX := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_SUPPORTS_QUICK_TAP := true
+
+# TARGET_BUILD_PACKAGE options:
+# 1 - vanilla (default)
+# 2 - microg
+# 3 - gapps
+TARGET_BUILD_PACKAGE := 3
+
+TARGET_INCLUDE_LAWNCHAIR := true
+
+# GAPPS (valid only for GAPPS builds)
+TARGET_INCLUDE_PIXEL_LAUNCHER := true
+TARGET_SUPPORTS_CALL_RECORDING := true
+TARGET_INCLUDE_STOCK_ARCORE := false
+TARGET_INCLUDE_STOCK_AICORE := true
+TARGET_INCLUDE_LIVE_WALLPAPERS := false
+TARGET_SUPPORTS_GOOGLE_RECORDER := false
+
+# Extras
+TARGET_INCLUDE_RIMUSIC := true
+
+# Debugging
+TARGET_INCLUDE_MATLOG := false
+
+# Maintainer
+ALPHA_BUILD_TYPE := UnOfficial
+ALPHA_MAINTAINER := leonevo
